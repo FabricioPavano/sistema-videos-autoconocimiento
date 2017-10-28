@@ -1,11 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Infraestructura del sistema:
 
-* Ruby version
+El sistema se encuentra deployado en un servidor Lightsail.
+
+
+
+
+
+
+
+* Ruby version:
+ruby 2.3.3
 
 * System dependencies
 
