@@ -1,12 +1,7 @@
 class LandingController < ApplicationController
 	def index
-		
-
-
-		Test.first
-
-		
-
-		render plain: "YOLO"
+		if usuario_signed_in?
+		  redirect_to dashboard_path
+		end
 	end
 end
