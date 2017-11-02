@@ -14,3 +14,11 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+$( document ).ready(function() {
+	$('.ingresar').click(function(e){
+		 e.preventDefault();
+		 location.href = '/ingresar'
+	})
+});
