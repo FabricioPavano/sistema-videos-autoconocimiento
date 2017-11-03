@@ -37,6 +37,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'devise-i18n'
 gem 'pry'
+gem 'sass', '~> 3.2.0'
 
 
 
