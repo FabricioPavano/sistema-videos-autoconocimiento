@@ -1,44 +1,4 @@
 
-
-
-<div class="container">
-
-  <div class="row" id="pwd-container">
-    <div class="col-md-4"></div>
-
-    <div class="col-md-4">
-      <section class="login-form">
-        <%= form_for(Usuario, as: :usuario, url: session_path(:usuario)) do |f| %>
-          <img src="<%= asset_path('logo2.png') %>" class="img-responsive" alt="" />
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" />
-
-          <input type="password" class="form-control input-lg" id="password" placeholder="Constraseña" required="" />
-
-
-          <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Ingresar</button>
-          <div>
-            <a href="#">Registrarse</a> o <a href="#">Cambiar Contraseña</a>
-          </div>
-
-        <% end %>
-
-        <div class="form-links">
-          <a href="https://gnosisargentina.org.ar">gnosisargentina.org.ar</a>
-        </div>
-      </section>
-    </div>
-
-
-
-
-  </div>
-
-
-</div>
-
-<!-- Esto es un copy paste de una pagina que encontre por ahi.  -->
-<style type="text/css">
-  
   @CHARSET "UTF-8";
   /*
   over-ride "Weak" message, show font in dark grey
@@ -80,6 +40,18 @@
     margin-top: 60px;
   }
 
+  .forgot-password-container{
+
+
+
+    margin: 60px 0;
+  }
+
+  .subtitle{
+    text-align: center;
+    color: white;
+  }
+
   form {
     color: #5d5d5d;
     background: #f2f2f2;
@@ -110,5 +82,3 @@
   .form-links a {
     color: #fff;
   }
-
-</style>

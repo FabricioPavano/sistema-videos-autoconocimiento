@@ -35,7 +35,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'font-awesome-rails'
 gem 'devise'
+gem 'devise-i18n'
 gem 'pry'
+
 
 
 group :development, :test do

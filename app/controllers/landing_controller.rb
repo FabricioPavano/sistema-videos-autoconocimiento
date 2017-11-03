@@ -4,7 +4,4 @@ class LandingController < ApplicationController
 		  redirect_to dashboard_path
 		end
 	end
-
-	def ingresar
-	end
 end

@@ -17,8 +17,14 @@
 
 
 $( document ).ready(function() {
-	$('.ingresar').click(function(e){
+	$('.ingresar-redirect').click(function(e){
 		 e.preventDefault();
 		 location.href = '/ingresar'
 	})
+
+	$('.go-homepage').click(function(e){
+		 e.preventDefault();
+		 location.href = '/'
+	})
+
 });
