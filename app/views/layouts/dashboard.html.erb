@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GNOSIS - Autoconocimiento</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'template/main', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'template/font-awesome', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'template/jquery.scrollex.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'template/jquery.scrolly.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'template/skel.min.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'template/util.js', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'template/main.js', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag '/fonts/icon-7-stroke/css/pe-icon-7-stroke.css' %>
+
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+
+    <% flash.each do |key, value| %>
+      <div class="flash-container">
+        <div class="flash-message"><%= value %></div>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+    <!-- Header -->
+      <header id="header">
+        <div class="logo"><a href="index.html">Road Trip <span>by TEMPLATED</span></a></div>
+        <a href="#menu"><span>Menu</span></a>
+      </header>
+
+    <!-- Nav -->
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="generic.html">Generic</a></li>
+          <li><a href="elements.html">Elements</a></li>
+        </ul>
+      </nav>
+
+    <!-- Banner -->
+    <!--
+      Note: To show a background image, set the "data-bg" attribute below
+      to the full filename of your image. This is used in each section to set
+      the background image.
+    -->
+      <section id="banner" class="img-1" ">
+        <div class="inner">
+          <header>
+            <h1>Bienvenido al Curso!</h1>
+          </header>
+        </div>
+        <a href="#one" class="more">Learn More</a>
+      </section>
+
+    <!-- Leccion 1 -->
+      <section id="one" class="img-2 wrapper post">
+        <div class="inner">
+          <article class="box">
+            <header>
+              <h2>Lección 1</h2>
+              <p>El conocimiento Gnóstico</p>
+            </header>
+            <div class="content">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/6xpATyq3RlQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+          </article>
+        </div>
+
+      </section>
+
+    <!-- Leccion 2 -->
+      <section id="two" class="img-3 wrapper post">
+        <div class="inner">
+          <article class="box">
+            <header>
+              <h2>Lección 2</h2>
+              <p>¿Quiénes somos?</p>
+            </header>
+            <div class="content">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/7ei2IhxLL1o" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    <!-- Leccion 3 -->
+      <section id="three" class="img-4 post">
+        <div class="inner">
+          <article class="box">
+            <header>
+              <h2>Lección 3</h2>
+              <p>El despertar de la conciencia</p>
+            </header>
+            <div class="content">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/G7Ng-8vqF5Y" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    <!-- Leccion 4 -->
+      <section id="four" class="img-5 post">
+        <div class="inner">
+          <article class="box">
+            <header>
+              <h2>Lección 4</h2>
+              <p>Los estados de la conciencia</p>
+            </header>
+            <div class="content">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/IIQxRmFyOkQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+          </article>
+        </div>
+      </section>
+
+  </body>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="inner">
+
+      <h2>Contact Me</h2>
+
+      <form action="#" method="post">
+
+        <div class="field half first">
+          <label for="name">Name</label>
+          <input name="name" id="name" type="text" placeholder="Name">
+        </div>
+        <div class="field half">
+          <label for="email">Email</label>
+          <input name="email" id="email" type="email" placeholder="Email">
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="6" placeholder="Message"></textarea>
+        </div>
+        <ul class="actions">
+          <li><input value="Send Message" class="button alt" type="submit"></li>
+        </ul>
+      </form>
+
+      <ul class="icons">
+        <li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
+        <li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
+      </ul>
+
+      <div class="copyright">
+        &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+      </div>
+
+    </div>
+  </footer>
+
+</html>
