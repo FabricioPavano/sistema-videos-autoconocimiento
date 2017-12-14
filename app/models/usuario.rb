@@ -8,7 +8,12 @@ class Usuario < ApplicationRecord
   has_one :schedule
 
   before_create :generate_schedule
+  after_create :send_welcome_email
 
+
+  def send_welcome_email
+    GnosisMailer.welcome_email(self).deliver
+  end
 
   def generate_schedule
   	interval = 3
