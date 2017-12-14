@@ -38,6 +38,10 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'pry'
 gem 'sass', '~> 3.2.0'
+gem 'resque'
+gem 'resque_mailer'
+gem 'resque-scheduler'
+
 
 
 group :development, :test do

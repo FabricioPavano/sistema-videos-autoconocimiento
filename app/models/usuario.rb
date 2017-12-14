@@ -12,7 +12,7 @@ class Usuario < ApplicationRecord
 
 
   def send_welcome_email
-    GnosisMailer.welcome_email(self).deliver
+    GnosisMailer.welcome_email(self.email).deliver
   end
 
   def generate_schedule
@@ -24,6 +24,11 @@ class Usuario < ApplicationRecord
   	schedule.leccion3 = DateTime.now + (interval * 2)
   	schedule.leccion4 = DateTime.now + (interval * 3)
   	schedule.leccion5 = DateTime.now + (interval * 4)
+
+    GnosisMailer.leccion_habilitada_email(self.email, 2).deliver_at( DateTime.now + (interval * 2) )
+    GnosisMailer.leccion_habilitada_email(self.email, 3).deliver_at( DateTime.now + (interval * 3) )
+    GnosisMailer.leccion_habilitada_email(self.email, 4).deliver_at( DateTime.now + (interval * 4) )
+
   end
 
 
