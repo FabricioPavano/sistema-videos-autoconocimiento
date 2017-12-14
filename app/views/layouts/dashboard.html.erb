@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -42,7 +44,7 @@
     <!-- Header -->
       <header id="header">
         <div class="logo"><a href="index.html">Introducción al Autoconocimiento <span>por AGEACAC</span></a></div>
-        <a href="#menu"><span>Menu</span></a>
+        <%= link_to('Logout', destroy_usuario_session_path, method: :delete) %>  
       </header>
 
     <!-- Nav -->
@@ -70,20 +72,31 @@
       </section>
 
     <!-- Leccion 1 -->
-      <section id="one" class="img-2 wrapper post">
-        <div class="inner">
-          <article class="box">
-            <header>
-              <h2>Lección 1</h2>
-              <p>El conocimiento Gnóstico</p>
-            </header>
-            <div class="content">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/6xpATyq3RlQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
-          </article>
-        </div>
+    
+    <section id="one" class="img-2 wrapper post">
+      <div class="inner">
+        <article class="box">
+          <header>
+            <h2>Lección 1</h2>
+            <p>El conocimiento Gnóstico</p>
+          </header>
+          <div class="content">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/6xpATyq3RlQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+        </article>
+      </div>
 
-      </section>
+      <% if @schedule.leccion1.to_date.future?  %>
+        <div class="my-overlay">
+          <div class="message" >
+            La leccion 1 no disponible <br />
+            Hasta el <%= @schedule.leccion1.strftime("%d/%m/%Y")  %>
+          </div>
+        </div>
+      <% end %>
+
+    </section>
+    
 
     <!-- Leccion 2 -->
       <section id="two" class="img-3 wrapper post">
@@ -98,6 +111,15 @@
             </div>
           </article>
         </div>
+
+        <% if @schedule.leccion2.to_date.future?  %>
+          <div class="my-overlay">
+            <div class="message" >
+              Lección 2 no disponible <br />
+              Hasta el <%= @schedule.leccion2.strftime("%d/%m/%Y")  %>
+            </div>
+          </div>
+        <% end %>
       </section>
 
     <!-- Leccion 3 -->
@@ -113,6 +135,16 @@
             </div>
           </article>
         </div>
+
+        <% if @schedule.leccion3.to_date.future?  %>
+          <div class="my-overlay">
+            <div class="message" >
+              Lección 3 no disponible <br />
+              Hasta el <%= @schedule.leccion3.strftime("%d/%m/%Y")  %>
+            </div>
+          </div>
+        <% end %>
+
       </section>
 
     <!-- Leccion 4 -->
@@ -128,6 +160,16 @@
             </div>
           </article>
         </div>
+
+        <% if @schedule.leccion4.to_date.future?  %>
+          <div class="my-overlay">
+            <div class="message" >
+              Lección 4 no disponible <br />
+              Hasta el <%= @schedule.leccion4.strftime("%d/%m/%Y")  %>
+            </div>
+          </div>
+        <% end %>
+
       </section>
 
       <!-- Leccion 5 -->
@@ -143,6 +185,15 @@
             </div>
           </article>
         </div>
+
+        <% if @schedule.leccion5.to_date.future?  %>
+          <div class="my-overlay">
+            <div class="message" >
+              Lección 5 no disponible <br />
+              Hasta el <%= @schedule.leccion5.strftime("%d/%m/%Y")  %>
+            </div>
+          </div>
+        <% end %>
       </section>
 
   </body>

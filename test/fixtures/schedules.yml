@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  leccion1: 2017-12-13 12:54:42
+  leccion2: 2017-12-13 12:54:42
+  leccion3: 2017-12-13 12:54:42
+  leccion4: 2017-12-13 12:54:42
+  leccion5: 2017-12-13 12:54:42
+
+two:
+  usuario: two
+  leccion1: 2017-12-13 12:54:42
+  leccion2: 2017-12-13 12:54:42
+  leccion3: 2017-12-13 12:54:42
+  leccion4: 2017-12-13 12:54:42
+  leccion5: 2017-12-13 12:54:42

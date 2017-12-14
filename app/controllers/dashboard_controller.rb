@@ -4,6 +4,8 @@ class DashboardController < ApplicationController
 
 
 	def index
+		@usuario = current_usuario
+		@schedule = current_usuario.schedule
 	end
 
 	private

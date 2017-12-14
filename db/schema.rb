@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030023144) do
+ActiveRecord::Schema.define(version: 20171213155442) do
 
   create_table "carnets_viejos", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "Nombre"
@@ -20,6 +20,26 @@ ActiveRecord::Schema.define(version: 20171030023144) do
     t.string "direccion"
     t.string "tel"
     t.integer "tb_tipo_de_carnet", unsigned: true
+  end
+
+  create_table "password_resets", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string "email", null: false
+    t.string "token", null: false
+    t.timestamp "created_at", null: false
+    t.index ["email"], name: "password_resets_email_index"
+    t.index ["token"], name: "password_resets_token_index"
+  end
+
+  create_table "schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.bigint "usuario_id"
+    t.datetime "leccion1"
+    t.datetime "leccion2"
+    t.datetime "leccion3"
+    t.datetime "leccion4"
+    t.datetime "leccion5"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["usuario_id"], name: "index_schedules_on_usuario_id"
   end
 
   create_table "tb_actividad_de_comite", primary_key: "id_actividad_de_comite", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -52,6 +72,12 @@ ActiveRecord::Schema.define(version: 20171030023144) do
 
   create_table "tb_ambito_de_curso", primary_key: "id_ambito_de_curso", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "ambito_de_curso", limit: 45, null: false
+  end
+
+  create_table "tb_articulo", primary_key: "id_articulo", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "detalle", limit: 45, null: false
+    t.decimal "moneda_precio", precision: 10, scale: 2, null: false
+    t.integer "tb_categoria_de_articulo", null: false, unsigned: true
   end
 
   create_table "tb_asistente_a_curso", primary_key: "id_asistente_a_curso", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -301,6 +327,7 @@ ActiveRecord::Schema.define(version: 20171030023144) do
   end
 
   create_table "tb_debito", primary_key: "id_debito", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.datetime "timecreate_fecha_de_creacion"
     t.integer "tb_persona", null: false, unsigned: true
     t.string "confeccionado", limit: 2, null: false
     t.integer "tb_tarjeta"
@@ -312,6 +339,13 @@ ActiveRecord::Schema.define(version: 20171030023144) do
     t.date "fecha_de_fin_de_debito"
     t.string "observaciones", limit: 80
     t.string "originado_desde_web", limit: 2
+    t.index ["confeccionado"], name: "Index_3"
+    t.index ["debitando"], name: "Index_7"
+    t.index ["numero_de_tarjeta"], name: "Index_6"
+    t.index ["originado_desde_web"], name: "Index_8"
+    t.index ["tb_persona"], name: "Index_9"
+    t.index ["tb_tarjeta"], name: "Index_4"
+    t.index ["tb_tipo_de_tarjeta"], name: "Index_5"
   end
 
   create_table "tb_debito_temp", primary_key: "idtb_debito_temp", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -653,6 +687,24 @@ ActiveRecord::Schema.define(version: 20171030023144) do
     t.index ["tb_micrositio"], name: "Index_2"
   end
 
+  create_table "tb_pago_de_articulo", primary_key: "id_pago_de_articulo", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "collection_id", limit: 45
+    t.string "collection_status", limit: 45
+    t.string "preference_id", limit: 200
+    t.string "external_reference", limit: 45
+    t.string "payment_type", limit: 45
+    t.string "merchant_order_id", limit: 45
+    t.integer "cantidad"
+    t.integer "tb_articulo", unsigned: true
+    t.integer "user_id", unsigned: true
+    t.integer "cantidad_retiradas", null: false
+    t.datetime "fecha_de_registracion"
+    t.integer "tb_evento", unsigned: true
+    t.index ["tb_articulo"], name: "Index_2"
+    t.index ["tb_evento"], name: "Index_4"
+    t.index ["user_id"], name: "Index_3"
+  end
+
   create_table "tb_pais", primary_key: "id_pais", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "pais", limit: 45, null: false, collation: "latin1_spanish_ci"
   end
@@ -794,6 +846,11 @@ ActiveRecord::Schema.define(version: 20171030023144) do
     t.integer "tb_inscripcion_en_evento", unsigned: true
     t.string "hash_validacion", limit: 120, null: false
     t.string "autorizado", limit: 2
+    t.index ["autorizado"], name: "Index_6"
+    t.index ["tb_evento"], name: "Index_3"
+    t.index ["tb_inscripcion_en_evento"], name: "Index_5"
+    t.index ["tb_persona"], name: "Index_2"
+    t.index ["tb_persona0rector_que_autorizo_el_paz_y_salvo"], name: "Index_4"
   end
 
   create_table "tb_primera_camara", primary_key: "id_primera_camara", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -890,7 +947,7 @@ ActiveRecord::Schema.define(version: 20171030023144) do
     t.integer "user_id", null: false, unsigned: true
     t.integer "tb_persona", null: false, unsigned: true
     t.datetime "fecha", null: false
-    t.string "accion", limit: 45, null: false
+    t.string "accion", limit: 80, null: false
   end
 
   create_table "tb_registro_ejecucion_script", primary_key: "id_registro_ejecucion_script", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -1295,7 +1352,12 @@ ActiveRecord::Schema.define(version: 20171030023144) do
     t.integer "tb_provincia", unsigned: true
     t.string "file_fotografia", limit: 20
     t.integer "tb_persona", unsigned: true
+    t.index ["apellido"], name: "Index_3"
+    t.index ["email"], name: "Index_4"
     t.index ["id"], name: "id", unique: true
+    t.index ["name"], name: "Index_2"
+    t.index ["tb_persona"], name: "Index_6"
+    t.index ["tb_provincia"], name: "Index_5"
   end
 
   create_table "usuarios", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -1316,4 +1378,5 @@ ActiveRecord::Schema.define(version: 20171030023144) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "schedules", "usuarios"
 end
