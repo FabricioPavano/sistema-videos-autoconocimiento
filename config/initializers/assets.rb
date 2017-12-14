@@ -14,13 +14,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w(  )
 Rails.application.config.assets.precompile += %w(
-  template/main.css
+  template/main.css template/font-awesome.css
+  template/jquery.scrollex.min.js template/jquery.scrolly.min.js
+  template/skel.min.js template/util.js template/main.js
 )
-
-
-# Apparent;y these fail
-# template/main.css template/font-awesome.css
-
-
-# template/skel.min.js template/util.js template/main.js
-# template/jquery.scrollex.min.js template/jquery.scrolly.min.js
