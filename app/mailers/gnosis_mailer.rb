@@ -17,6 +17,4 @@ class GnosisMailer < ApplicationMailer
     mail(to: @email, subject: subject)
   end
 
-
-
 end
