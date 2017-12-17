@@ -41,7 +41,7 @@ gem 'sass', '~> 3.2.0'
 gem 'resque'
 gem 'resque_mailer'
 gem 'resque-scheduler'
-
+gem "capistrano-resque", "~> 0.2.2", require: false
 
 
 group :development, :test do

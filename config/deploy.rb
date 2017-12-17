@@ -31,6 +31,9 @@ set :puma_init_active_record, true
 append :linked_dirs, "log", "tmp/pids", "tmp/sockets"
 
 
+set :workers, { "mailer" => 1 }
+
+
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
