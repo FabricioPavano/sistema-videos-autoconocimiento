@@ -30,6 +30,8 @@ set :puma_init_active_record, true
 # Default value for linked_dirs is []
 append :linked_dirs, "log", "tmp/pids", "tmp/sockets"
 
+role :resque_worker, "54.159.221.118"
+role :resque_scheduler, "54.159.221.118"
 
 set :workers, { "mailer" => 1 }
 
