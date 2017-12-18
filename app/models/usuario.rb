@@ -16,7 +16,7 @@ class Usuario < ApplicationRecord
   end
 
   def generate_schedule
-  	interval = 3
+  	interval = 1
 
   	build_schedule
   	schedule.leccion1 = DateTime.now
