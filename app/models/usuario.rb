@@ -25,9 +25,9 @@ class Usuario < ApplicationRecord
   	schedule.leccion4 = DateTime.now + (interval * 3)
   	schedule.leccion5 = DateTime.now + (interval * 4)
 
-    GnosisMailer.leccion_habilitada_email(self.email, 2).deliver_at( DateTime.now + (interval * 2) )
-    GnosisMailer.leccion_habilitada_email(self.email, 3).deliver_at( DateTime.now + (interval * 3) )
-    GnosisMailer.leccion_habilitada_email(self.email, 4).deliver_at( DateTime.now + (interval * 4) )
+    GnosisMailer.leccion_habilitada_email(self.email, 2).deliver_at( DateTime.now + (interval * 1) )
+    GnosisMailer.leccion_habilitada_email(self.email, 3).deliver_at( DateTime.now + (interval * 2) )
+    GnosisMailer.leccion_habilitada_email(self.email, 4).deliver_at( DateTime.now + (interval * 3) )
 
   end
 
