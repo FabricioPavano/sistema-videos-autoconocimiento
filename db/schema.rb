@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213155442) do
+ActiveRecord::Schema.define(version: 20180128160403) do
 
   create_table "carnets_viejos", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "Nombre"
@@ -166,6 +166,10 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.string "nombre_viejo", limit: 100
     t.integer "tb_numero_de_posicion", unsigned: true
     t.integer "tb_cara_de_carnet"
+  end
+
+  create_table "tb_categoria_de_articulo", primary_key: "id_categoria_de_articulo", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "categoria_de_articulo", limit: 45, null: false
   end
 
   create_table "tb_causa_de_baja", primary_key: "id_causa_de_baja", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -418,6 +422,9 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.date "fecha_fin", null: false
     t.integer "cantidad_de_inscriptos", null: false, unsigned: true
     t.string "habilitada_para_inscripcion_web", limit: 2
+    t.integer "tb_tipo_de_evento", null: false, unsigned: true
+    t.decimal "importe_de_inscripcion", precision: 10, scale: 2, null: false
+    t.string "habilitar_compra_de_alimentacion_web", limit: 2, null: false
   end
 
   create_table "tb_evento_mailing", primary_key: "id_evento_mailing", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -533,6 +540,16 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.integer "tb_persona", null: false, unsigned: true
     t.string "provincia", limit: 70
     t.string "ciudad", limit: 70
+    t.index ["ciudad"], name: "Index_9"
+    t.index ["diocesis"], name: "Index_8"
+    t.index ["nombreAp"], name: "Index_11"
+    t.index ["numero"], name: "Index_3"
+    t.index ["numero_de_documento"], name: "Index_4"
+    t.index ["pais"], name: "Index_6"
+    t.index ["provincia"], name: "Index_10"
+    t.index ["santuario"], name: "Index_7"
+    t.index ["tb_evento"], name: "Index_2"
+    t.index ["tb_persona"], name: "Index_5"
   end
 
   create_table "tb_instructor_de_curso", primary_key: "id_instructor_de_curso", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -664,6 +681,69 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.string "nacionalidad", limit: 45, null: false
   end
 
+  create_table "tb_notificacion_de_pago_mercadolibre", primary_key: "id_notificacion_de_pago_mercadolibre", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.datetime "fecha_de_registracion"
+    t.integer "collection_id", unsigned: true
+    t.string "site_id", limit: 3
+    t.datetime "date_created"
+    t.datetime "date_approved"
+    t.datetime "last_modified"
+    t.datetime "money_release_date"
+    t.string "operation_type", limit: 45
+    t.integer "collector_id", unsigned: true
+    t.string "nickname", limit: 45
+    t.string "first_name", limit: 45
+    t.string "last_name", limit: 45
+    t.string "phone", limit: 45
+    t.string "email", limit: 80
+    t.integer "payer_id", unsigned: true
+    t.string "identification_type", limit: 15
+    t.string "identification_number", limit: 20
+    t.string "external_reference", limit: 20
+    t.integer "merchant_order_id", unsigned: true
+    t.string "reason", limit: 60
+    t.string "currency_id", limit: 3
+    t.decimal "transaction_amount", precision: 7, scale: 2
+    t.decimal "total_paid_amount", precision: 7, scale: 2
+    t.decimal "shipping_cost", precision: 7, scale: 2
+    t.decimal "mercadopago_fee", precision: 7, scale: 2
+    t.decimal "net_received_amount", precision: 7, scale: 2
+    t.decimal "marketplace_fee", precision: 7, scale: 2
+    t.decimal "finance_fee", precision: 7, scale: 2
+    t.string "status", limit: 45
+    t.string "status_detail", limit: 45
+    t.string "status_code", limit: 20
+    t.string "released", limit: 10
+    t.string "payment_type", limit: 20
+    t.integer "installments", unsigned: true
+    t.decimal "installment_amount", precision: 7, scale: 2
+    t.string "deferred_period", limit: 45
+    t.string "cardholder_name", limit: 45
+    t.string "cardholder_identification_type", limit: 15
+    t.integer "cardholder_identification_number", unsigned: true
+    t.string "statement_descriptor", limit: 20
+    t.integer "transaction_order_id", unsigned: true
+    t.string "marketplace", limit: 45
+    t.decimal "amount_refunded", precision: 7, scale: 2
+    t.integer "bank_transfer_detail_id", unsigned: true
+    t.integer "bank_transfer_detail_transaction_id", unsigned: true
+    t.string "bank_transfer_detail_financial_institution_description", limit: 45
+    t.index ["collection_id"], name: "Index_2"
+    t.index ["collector_id"], name: "Index_6"
+    t.index ["date_approved"], name: "Index_5"
+    t.index ["date_created"], name: "Index_4"
+    t.index ["email"], name: "Index_10"
+    t.index ["external_reference"], name: "Index_11"
+    t.index ["first_name"], name: "Index_8"
+    t.index ["last_name"], name: "Index_9"
+    t.index ["nickname"], name: "Index_7"
+    t.index ["payment_type"], name: "Index_15"
+    t.index ["site_id"], name: "Index_3"
+    t.index ["status"], name: "Index_12"
+    t.index ["status_code"], name: "Index_14"
+    t.index ["status_detail"], name: "Index_13"
+  end
+
   create_table "tb_numero_de_posicion", primary_key: "id_numero_de_posicion", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "numero_de_posicion", limit: 45, null: false
   end
@@ -700,6 +780,8 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.integer "cantidad_retiradas", null: false
     t.datetime "fecha_de_registracion"
     t.integer "tb_evento", unsigned: true
+    t.string "estado", limit: 15
+    t.integer "tb_persona", unsigned: true
     t.index ["tb_articulo"], name: "Index_2"
     t.index ["tb_evento"], name: "Index_4"
     t.index ["user_id"], name: "Index_3"
@@ -707,6 +789,11 @@ ActiveRecord::Schema.define(version: 20171213155442) do
 
   create_table "tb_pais", primary_key: "id_pais", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "pais", limit: 45, null: false, collation: "latin1_spanish_ci"
+  end
+
+  create_table "tb_parametro", primary_key: "id_parametro", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "parametro", limit: 100
+    t.string "valor", limit: 40
   end
 
   create_table "tb_parentezco", primary_key: "id_parentezco", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -1286,6 +1373,10 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.string "mnemo", limit: 3, null: false
   end
 
+  create_table "tb_tipo_de_evento", primary_key: "id_tipo_de_evento", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "tipo_de_evento", limit: 45, null: false
+  end
+
   create_table "tb_tipo_de_material", primary_key: "id_tipo_de_material", id: :integer, unsigned: true, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC" do |t|
     t.string "tipo_de_material", limit: 45, null: false
   end
@@ -1352,7 +1443,11 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.integer "tb_provincia", unsigned: true
     t.string "file_fotografia", limit: 20
     t.integer "tb_persona", unsigned: true
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.index ["apellido"], name: "Index_3"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "Index_4"
     t.index ["id"], name: "id", unique: true
     t.index ["name"], name: "Index_2"
@@ -1374,6 +1469,11 @@ ActiveRecord::Schema.define(version: 20171213155442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+    t.string "unconfirmed_email"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_usuarios_on_confirmation_token", unique: true
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end

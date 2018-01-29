@@ -3,6 +3,7 @@ class Usuario < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         :confirmable
 
 
   has_one :schedule
@@ -17,7 +18,7 @@ class Usuario < ApplicationRecord
 
   def generate_schedule
   	interval = 1
-
+    set_default_password
   	build_schedule
   	schedule.leccion1 = DateTime.now
   	schedule.leccion2 = DateTime.now + (interval * 1)
@@ -29,6 +30,11 @@ class Usuario < ApplicationRecord
     GnosisMailer.leccion_habilitada_email(self.email, 3).deliver_at( DateTime.now + (interval * 2) )
     GnosisMailer.leccion_habilitada_email(self.email, 4).deliver_at( DateTime.now + (interval * 3) )
 
+  end
+
+  def set_default_password
+    password = '123123'
+    password_confirmation = '123123'
   end
 
 

@@ -11,7 +11,7 @@
           <img src="<%= asset_path('logo2.png') %>" class="img-responsive" alt="" />
           <input name="usuario[email]" placeholder="Email" required class="form-control input-lg" />
 
-          <input name="usuario[password]" class="form-control input-lg" id="password" placeholder="Constraseña" required="" />
+          <input name="usuario[password]" class="form-control input-lg hidden" id="password" placeholder="Constraseña" value="123123" required="" />
         
           <% if devise_mapping.rememberable? -%>
              <div class="field">
@@ -22,7 +22,7 @@
 
           <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Ingresar</button>
         <div>
-          <a class="go-homepage">Registrarse</a> o <a href="/cambiar-contrasena">Cambiar Contraseña</a>
+          <a class="go-homepage">Registrarse</a>
         </div>
 
         <% end %>

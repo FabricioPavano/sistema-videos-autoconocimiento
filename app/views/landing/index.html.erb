@@ -40,13 +40,16 @@
 								<input class="form-control input-lg" name="usuario[email]" id="email" type="email" placeholder="Email" required>
 							</div>
 							<div class="form-group">
-								<input class="form-control input-lg" name="usuario[password]" id="password" type="password" placeholder="Contraseña" required>
+								<input class="form-control input-lg hidden" name="usuario[password]" id="password" type="password" value="123123" placeholder="Contraseña" required>
 							</div>
 							<div class="form-group last">
 								<input type="submit" class="btn btn-warning btn-block btn-lg" value="INSCRIBIRME">
 							</div>
+							<div class="form-group" style="color:white; font-size: 15px; text-align: center; font-weight: bold; font-size: 20px;">
+								O
+							</div>
 							<div class="form-group last">
-								<%= button_to "INGRESAR (YA ESTOY INSCRIPTO)", ingresar_path,
+								<%= button_to "INGRESAR", ingresar_path,
 								      :class => "btn btn-warning btn-block btn-lg ingresar-redirect", :method => :get %>
 							</div>
 						<% end %>	
