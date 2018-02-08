@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :usuarios, path: '', path_names: { sign_in: 'ingresar', sign_out: 'salir'}, :controllers => { confirmations: 'confirmations', registrations: 'registrations' }
+  devise_for :usuarios, path: '', path_names: { sign_in: 'ingresar', sign_out: 'salir'}, :controllers => { registrations: 'registrations' }
 	root to: "landing#index"
 
 

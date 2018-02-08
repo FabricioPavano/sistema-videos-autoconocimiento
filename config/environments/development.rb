@@ -30,11 +30,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.gmail.com',
+    :address        => 'smtp-relay.sendinblue.com',
     :domain         => 'gmail.com',
     :port           => 587,
-    :user_name      => 'fpavano@deviget.com',
-    :password       => 'marucc10v',
+    :user_name      => 'faripavano@gmail.com',
+    :password       => 'sBGSMOpm43NqZ8KF',
     :authentication => :plain,
     :enable_starttls_auto => true
   }

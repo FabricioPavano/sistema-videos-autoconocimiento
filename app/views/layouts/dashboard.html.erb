@@ -41,162 +41,183 @@
 
     <%= yield %>
 
+
+
     <!-- Header -->
       <header id="header">
         <div class="logo"><a href="index.html">Introducción al Autoconocimiento <span>por AGEACAC</span></a></div>
         <%= link_to('Salir', destroy_usuario_session_path, method: :delete) %>  
       </header>
 
-    <!-- Nav -->
-      <nav id="menu">
-        <ul class="links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="generic.html">Generic</a></li>
-          <li><a href="elements.html">Elements</a></li>
-        </ul>
-      </nav>
 
-    <!-- Banner -->
-    <!--
-      Note: To show a background image, set the "data-bg" attribute below
-      to the full filename of your image. This is used in each section to set
-      the background image.
-    -->
-      <section id="banner" class="img-1" ">
+    <% if @usuario.confirmed? %>
+
+      <!-- Nav -->
+        <nav id="menu">
+          <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="generic.html">Generic</a></li>
+            <li><a href="elements.html">Elements</a></li>
+          </ul>
+        </nav>
+
+      <!-- Banner -->
+      <!--
+        Note: To show a background image, set the "data-bg" attribute below
+        to the full filename of your image. This is used in each section to set
+        the background image.
+      -->
+        <section id="banner" class="img-1" ">
+          <div class="inner">
+            <header>
+              <h1>Bienvenido al Curso!</h1>
+            </header>
+          </div>
+          <a href="#one" class="more">Learn More</a>
+        </section>
+
+      <!-- Leccion 1 -->
+      
+      <section id="one" class="img-2 wrapper post">
         <div class="inner">
-          <header>
-            <h1>Bienvenido al Curso!</h1>
-          </header>
+          <article class="box">
+            <header>
+              <h2>Lección 1</h2>
+              <p>El conocimiento Gnóstico</p>
+            </header>
+            <div class="content">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/6xpATyq3RlQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+            </div>
+          </article>
         </div>
-        <a href="#one" class="more">Learn More</a>
+
+        <% if @schedule.leccion1.to_date.future?  %>
+          <div class="my-overlay">
+            <div class="message" >
+              La leccion 1 no disponible <br />
+              Hasta el <%= @schedule.leccion1.strftime("%d/%m/%Y")  %>
+            </div>
+          </div>
+        <% end %>
+
       </section>
+      
 
-    <!-- Leccion 1 -->
-    
-    <section id="one" class="img-2 wrapper post">
-      <div class="inner">
-        <article class="box">
-          <header>
-            <h2>Lección 1</h2>
-            <p>El conocimiento Gnóstico</p>
-          </header>
-          <div class="content">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/6xpATyq3RlQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      <!-- Leccion 2 -->
+        <section id="two" class="img-3 wrapper post">
+          <div class="inner">
+            <article class="box">
+              <header>
+                <h2>Lección 2</h2>
+                <p>¿Quiénes somos?</p>
+              </header>
+              <div class="content">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/7ei2IhxLL1o" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              </div>
+            </article>
           </div>
-        </article>
-      </div>
 
-      <% if @schedule.leccion1.to_date.future?  %>
-        <div class="my-overlay">
-          <div class="message" >
-            La leccion 1 no disponible <br />
-            Hasta el <%= @schedule.leccion1.strftime("%d/%m/%Y")  %>
+          <% if @schedule.leccion2.to_date.future?  %>
+            <div class="my-overlay">
+              <div class="message" >
+                Lección 2 no disponible <br />
+                Hasta el <%= @schedule.leccion2.strftime("%d/%m/%Y")  %>
+              </div>
+            </div>
+          <% end %>
+        </section>
+
+      <!-- Leccion 3 -->
+        <section id="three" class="img-4 post">
+          <div class="inner">
+            <article class="box">
+              <header>
+                <h2>Lección 3</h2>
+                <p>El despertar de la conciencia</p>
+              </header>
+              <div class="content">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/G7Ng-8vqF5Y" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              </div>
+            </article>
           </div>
-        </div>
+
+          <% if @schedule.leccion3.to_date.future?  %>
+            <div class="my-overlay">
+              <div class="message" >
+                Lección 3 no disponible <br />
+                Hasta el <%= @schedule.leccion3.strftime("%d/%m/%Y")  %>
+              </div>
+            </div>
+          <% end %>
+
+        </section>
+
+      <!-- Leccion 4 -->
+        <section id="four" class="img-5 post">
+          <div class="inner">
+            <article class="box">
+              <header>
+                <h2>Lección 4</h2>
+                <p>Los estados de la conciencia</p>
+              </header>
+              <div class="content">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/IIQxRmFyOkQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              </div>
+            </article>
+          </div>
+
+          <% if @schedule.leccion4.to_date.future?  %>
+            <div class="my-overlay">
+              <div class="message" >
+                Lección 4 no disponible <br />
+                Hasta el <%= @schedule.leccion4.strftime("%d/%m/%Y")  %>
+              </div>
+            </div>
+          <% end %>
+
+        </section>
+
+        <!-- Leccion 5 -->
+        <section id="five" class="img-6 post">
+          <div class="inner">
+            <article class="box">
+              <header>
+                <h2>Lección 5</h2>
+                <p>Invitación al Curso Personal</p>
+              </header>
+              <div class="content">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/aCWgDb0r4w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+              </div>
+            </article>
+          </div>
+
+          <% if @schedule.leccion5.to_date.future?  %>
+            <div class="my-overlay">
+              <div class="message" >
+                Lección 5 no disponible <br />
+                Hasta el <%= @schedule.leccion5.strftime("%d/%m/%Y")  %>
+              </div>
+            </div>
+          <% end %>
+        </section>
+      <% else %>
+
+        <section id="banner" class="img-10" ">
+          <div class="inner">
+            <header>
+              <h1>Gracias por inscribirte!</h1>
+              <h5> Para poder continuar: debes confirmar tu correo haciendo click en link que te hemos mandado a tu correo </h5>
+            </header>
+          </div>
+          <a href="#one" class="more">Learn More</a>
+        </section>
+
       <% end %>
 
-    </section>
-    
-
-    <!-- Leccion 2 -->
-      <section id="two" class="img-3 wrapper post">
-        <div class="inner">
-          <article class="box">
-            <header>
-              <h2>Lección 2</h2>
-              <p>¿Quiénes somos?</p>
-            </header>
-            <div class="content">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/7ei2IhxLL1o" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
-          </article>
-        </div>
-
-        <% if @schedule.leccion2.to_date.future?  %>
-          <div class="my-overlay">
-            <div class="message" >
-              Lección 2 no disponible <br />
-              Hasta el <%= @schedule.leccion2.strftime("%d/%m/%Y")  %>
-            </div>
-          </div>
-        <% end %>
-      </section>
-
-    <!-- Leccion 3 -->
-      <section id="three" class="img-4 post">
-        <div class="inner">
-          <article class="box">
-            <header>
-              <h2>Lección 3</h2>
-              <p>El despertar de la conciencia</p>
-            </header>
-            <div class="content">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/G7Ng-8vqF5Y" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
-          </article>
-        </div>
-
-        <% if @schedule.leccion3.to_date.future?  %>
-          <div class="my-overlay">
-            <div class="message" >
-              Lección 3 no disponible <br />
-              Hasta el <%= @schedule.leccion3.strftime("%d/%m/%Y")  %>
-            </div>
-          </div>
-        <% end %>
-
-      </section>
-
-    <!-- Leccion 4 -->
-      <section id="four" class="img-5 post">
-        <div class="inner">
-          <article class="box">
-            <header>
-              <h2>Lección 4</h2>
-              <p>Los estados de la conciencia</p>
-            </header>
-            <div class="content">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/IIQxRmFyOkQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
-          </article>
-        </div>
-
-        <% if @schedule.leccion4.to_date.future?  %>
-          <div class="my-overlay">
-            <div class="message" >
-              Lección 4 no disponible <br />
-              Hasta el <%= @schedule.leccion4.strftime("%d/%m/%Y")  %>
-            </div>
-          </div>
-        <% end %>
-
-      </section>
-
-      <!-- Leccion 5 -->
-      <section id="five" class="img-6 post">
-        <div class="inner">
-          <article class="box">
-            <header>
-              <h2>Lección 5</h2>
-              <p>Invitación al Curso Personal</p>
-            </header>
-            <div class="content">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/aCWgDb0r4w4" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            </div>
-          </article>
-        </div>
-
-        <% if @schedule.leccion5.to_date.future?  %>
-          <div class="my-overlay">
-            <div class="message" >
-              Lección 5 no disponible <br />
-              Hasta el <%= @schedule.leccion5.strftime("%d/%m/%Y")  %>
-            </div>
-          </div>
-        <% end %>
-      </section>
-
   </body>
+
+
+  <% if @usuario.confirmed? %>
 
   <!-- Footer -->
   <footer id="footer">
@@ -235,5 +256,7 @@
 
     </div>
   </footer>
+
+  <% end %>
 
 </html>

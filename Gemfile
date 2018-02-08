@@ -42,6 +42,7 @@ gem 'resque'
 gem 'resque_mailer'
 gem 'resque-scheduler'
 gem "capistrano-resque", "~> 0.2.2", require: false
+gem 'sib-api-v3-sdk'
 
 
 group :development, :test do

@@ -1,5 +1,19 @@
-<p>Welcome <%= @email %>!</p>
+<p>Bienvenido <%= @email %>!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p><b>Gracias por registrarte a nuestro Curso online de Introducción al Auto-Conocimiento. </b></p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p>Como primera medida debes hacer click en el siguiente enlace para confirmar tu dirección de correo electrónico en el que recibirás los enlaces de cada clase.</p>
+
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Recordamos que el Curso es gratuito, financiado por AGEACAC.</p>
+
+<p>Esperamos entonces por la confirmación de tu email, e inmediatamente estarás recibiendo la primera lección del Curso.</p>
+
+<p>En caso de que tengas cualquier pregunta, comentario o sugerencia, no dudes en ponerte en contacto con nosotros en contacto@ageacac.org.ar</p>
+
+<p><b>Cordialmente</b></p>
+
+<p><b>Equipo de difusión de AGEACAC</b></p>
+
+P.D. Para asegurar que nuestros mensajes le lleguen con seguridad, por favor agregue contacto@ageacac.org.ar a su lista de remitentes de confianza.

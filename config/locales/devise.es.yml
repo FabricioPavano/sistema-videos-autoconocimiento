@@ -1,0 +1,5 @@
+es:
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: "Gnosis: Activa tu cuenta!"

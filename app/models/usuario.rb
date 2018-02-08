@@ -1,16 +1,12 @@
 class Usuario < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-         :confirmable
+  devise :database_authenticatable, :registerable, :rememberable, :confirmable
 
 
   has_one :schedule
 
-  before_create :generate_schedule
-  after_create :send_welcome_email
-
+  before_create :generate_schedule, :send_welcome_email
 
   def send_welcome_email
     GnosisMailer.welcome_email(self.email).deliver
