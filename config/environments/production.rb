@@ -67,13 +67,23 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
-   :address              => "smtp.gmail.com",
-   :port                 => 587,
-   :user_name            => 'gnosisargentina1@gmail.com',
-   :password             => 'marucc10a',
-   :authentication       => "plain",
-  :enable_starttls_auto => true
+  # config.action_mailer.smtp_settings = {
+  #  :address              => "smtp.gmail.com",
+  #  :port                 => 587,
+  #  :user_name            => 'gnosisargentina1@gmail.com',
+  #  :password             => 'marucc10a',
+  #  :authentication       => "plain",
+  # :enable_starttls_auto => true
+  # }
+
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp-relay.sendinblue.com',
+    :domain         => 'gmail.com',
+    :port           => 587,
+    :user_name      => 'faripavano@gmail.com',
+    :password       => 'sBGSMOpm43NqZ8KF',
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
 
 
