@@ -36,7 +36,7 @@ class SendTemplateEmailJob
 
     # HEADERS
     req['content-type'] = 'application/json'
-    req['api-key'] = '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'
+    req['api-key'] = ENV['SENDINBLUE-API-KEY']
 
     # PARAMS
     params = { 'emailTo' => [email_destino]  }
